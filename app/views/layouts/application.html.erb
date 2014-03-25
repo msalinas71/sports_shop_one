@@ -4,9 +4,16 @@
   <title>SportsShopOne</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag :defaults, :cache => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<ul>
+  <li><a href="/orders">Orders</a></li>
+  <li><a href="/products">Products</a></li>
+</ul>
+
 
 <%= yield %>
 
