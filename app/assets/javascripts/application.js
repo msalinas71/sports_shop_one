@@ -16,12 +16,11 @@
 //= require_tree .
 
 
-
-
 function remove_fields(link) {
-	$(link).prev("input[type=hidden]").val = "1";
-	$(link).closest(".fields").hide();
+        $(link).previous("input[type=hidden]").value = "1";
+        $(link).up(".fields").hide();
 }
+
 
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
