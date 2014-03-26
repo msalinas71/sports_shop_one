@@ -11,6 +11,6 @@
 	<%= f.hidden_field :id %>
 	<%= f.hidden_field :_destroy %>
 
-	<%= link_to_remove_fields "remove", f %>
+	<%= link_to_function "remove", " remove_fields(this) " %>
 	</p>
 </div>
