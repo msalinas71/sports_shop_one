@@ -7,14 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container">
+		<ul>
+  			<li><a href="/orders">Orders</a></li>
+  			<li><a href="/products">Products</a></li>
+		</ul>
 
-<ul>
-  <li><a href="/orders">Orders</a></li>
-  <li><a href="/products">Products</a></li>
-</ul>
 
-
-<%= yield %>
-
+ 		<%= yield %>
+	</div>
 </body>
 </html>
