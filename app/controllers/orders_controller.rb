@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :need_authenticate
 
   # GET /orders
   # GET /orders.json
@@ -63,6 +64,8 @@ class OrdersController < ApplicationController
   end
 
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
@@ -70,6 +73,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:order_status, :payment_method, :shipping_address, :shipping_city, :customer_name, :customer_last_name, :line_items_attributes => [:id, :product_id, :quantity, :price, :_destroy])
+      params.require(:order).permit(:order_status, :payment_method, :shipping_address, :shipping_city, :customer_name, :customer_last_name, :line_items_attributes => [:product_id, :quantity, :price, :_destroy])
     end
 end

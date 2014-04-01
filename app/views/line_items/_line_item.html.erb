@@ -1,5 +1,5 @@
 <tr>
-  <td><%= line_item.product.name %></td>
-  <td><%= line_item.price %></td>
-  <td><%= line_item.quantity %></td>
+  <p><th>Product:</th>  <%= line_item.product.name %></p>
+  <p><th>Price:</th>  <%= number_to_currency(line_item.price, precision: 2)%></p>
+  <p><th>Quantity:</th>  <%= line_item.quantity %></p>
 </tr>
