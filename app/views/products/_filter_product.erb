@@ -1,0 +1,33 @@
+<div class="row">  
+  <div class="col-md-12">
+
+    <%= form_tag products_path, {:class => "form-inline", :method => 'get'} do |f| %>
+    <div class="field">
+      <%= label_tag :by_registered_at %>
+      <%= date_field_tag :by_registered_at, params[:by_registered_at] %>
+    </div>
+    <div class="field">
+      <%= label_tag :by_manufacturer %>
+      <%= text_field_tag :by_manufacturer, params[:by_manufacturer] %>
+    </div>
+    <div class="field">
+      <%= label_tag :by_stock %>
+      <%= number_field_tag :by_stock, params[:by_stock] %>
+    </div>
+    <div class="field">
+      <%= label_tag :by_product_category %>
+      <%= text_field_tag :by_product_category, params[:by_product_category] %>
+    </div>
+    <div class="field">
+      <%= label_tag :by_lowest_price %>
+      <%= number_field_tag :by_lowest_price, params[:by_lowest_price] %>
+    </div>
+    <div class="field">
+      <%= label_tag :by_highest_price %>
+      <%= number_field_tag :by_highest_price, params[:by_highest_price] %>
+    </div>
+
+    <div class="actions"><%= submit_tag "Filters Products" %></div>
+    <% end %>
+  </div>
+</div>

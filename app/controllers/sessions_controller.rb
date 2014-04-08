@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
- 
+ before_action :not_need_authenticate, except: :destroy
  def new
  end
  

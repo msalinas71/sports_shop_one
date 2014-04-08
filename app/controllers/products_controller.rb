@@ -3,8 +3,12 @@ class ProductsController < ApplicationController
   before_action :need_authenticate, except: [:index]
   # GET /products
   # GET /products.json
+  
   def index
     @products = Product.all
+    filtering_params(params).each do |key, value|
+    @products = @products.public_send(key, value) if value.present?
+    end
   end
 
   # GET /products/1
@@ -69,6 +73,12 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :registered_at, :manufacturer, :stock, :product_category)
+      params.require(:product).permit(:name, :description, :registered_at, :manufacturer, :stock, :product_category, :price)
     end
-end
+
+
+    # A list of the param names that can be used for filtering the Product list
+    def filtering_params(params)
+      params.slice(:by_registered_at, :by_manufacturer, :by_stock, :by_product_category, :by_lowest_price, :by_highest_price)
+    end
+  end

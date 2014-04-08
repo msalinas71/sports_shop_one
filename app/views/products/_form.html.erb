@@ -43,7 +43,12 @@
   <div class="control-group">
     <%= f.label :product_category, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :product_category, :class => 'text_field' %>
+      <%= f.select :product_category, Product::CATEGORY_LIST, prompt: 'Select a product category' %>
+    </div>
+    <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :price, :class => 'text_field' %>
     </div>
   </div>
 

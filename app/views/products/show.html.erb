@@ -1,3 +1,4 @@
+
 <%- model_class = Product -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
@@ -16,6 +17,8 @@
   <dd><%= @product.stock %></dd>
   <dt><strong><%= model_class.human_attribute_name(:product_category) %>:</strong></dt>
   <dd><%= @product.product_category %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @product.price %></dd>
 </dl>
 
 <div class="form-actions">

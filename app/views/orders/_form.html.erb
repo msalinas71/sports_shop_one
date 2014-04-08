@@ -13,13 +13,13 @@
   <div class="control-group">
     <%= f.label :order_status, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :order_status, :class => 'text_field' %>
+      <%= f.select :order_status, Order::STATUS, prompt: 'Select a status order' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :payment_method, :class => 'control-label' %>
+    <%= f.label :payment_method, :class => 'control-label'  %>
     <div class="controls">
-      <%= f.text_field :payment_method, :class => 'text_field' %>
+      <%= f.select :payment_method, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
     </div>
   </div>
   <div class="control-group">
