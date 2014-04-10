@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
   STATUS = [ "Pending", "Sent", "Received" ]
   validates :order_status, inclusion: STATUS
 
-  before_validation :set_status, only: [:create]
+  before_validation :set_status, on: :create
 
   	private 
  
