@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
   has_secure_password
-  
-  validates_format_of :email, with: /[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})/, message: "is not an email", uniqueness: true
-  validates :user_name, :user_last_name, :email, :password, :password_confirmation, presence: true
-  validates_format_of :password, with: /(?=^.{8,}$)(?=.*\d+)(?=.*\W+).*/ , message: "include digit and not alphanumeric?"
-  validates :password_confirmation, presence: true
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true
+  validates :email, format: { with: VALID_EMAIL_REGEX, message: "Is not a valid email" }
+  VALID_PASSWORD_REGEX = /(?=^.{8,}$)(?=.*\d+)(?=.*\W+).*/
+  validates :password, presence: true
+  validates :password, format: { with: VALID_PASSWORD_REGEX, message: "Include digit and not alphanumeric?" }
+  validates :user_name, :user_last_name, :password_confirmation, presence: true
+
 end

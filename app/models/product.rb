@@ -5,9 +5,10 @@ class Product < ActiveRecord::Base
   has_many :orders, through: :line_items
   
   validates :name, :registered_at, :stock, :price, presence: true
-  validates :price, numericality: {greater_than_or_equal_to: 0.01}
-  validates_numericality_of :stock, :only_integer => true, :greater_than_or_equal_to => 0
-  
+  validates :price, numericality: { greater_than_or_equal_to: 0.01 }
+  validates :stock, numericality: { only_integer: true }
+  validates :stock, numericality: { greater_than_or_equal_to: 0 }
+
   CATEGORY_LIST = [ "books", "music & movies", "electronics", "home", "toys", "clothing", "foodstuff", "     " ]
   validates :product_category, inclusion: CATEGORY_LIST
 

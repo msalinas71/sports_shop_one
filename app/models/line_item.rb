@@ -2,8 +2,9 @@ class LineItem < ActiveRecord::Base
   belongs_to :product
   belongs_to :order
 
-  validates :price, numericality: {greater_than_or_equal_to: 0.01}
-  validates_numericality_of :quantity,:price, :only_integer => true, :greater_than_or_equal_to => 0
+  validates :price, numericality: { greater_than_or_equal_to: 0.01}
+  validates :quantity, numericality: { only_integer: true }
+  validates :quantity, numericality: { greater_than_or_equal_to: 0 }
   validates :product_id, :quantity, presence: true
   
   after_create :decrement_stock
